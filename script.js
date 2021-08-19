@@ -60,7 +60,7 @@ function showTime(){
 
     const salutations = document.querySelector('.time-definition')
 
-    if (h >= 0 || h <= 5) {
+    if (h < 6) {
         salutations.innerHTML = ' tenha uma boa madrugada!'
     }
 
@@ -68,7 +68,7 @@ function showTime(){
         salutations.innerHTML = ' tenha um bom dia!'
     }
 
-    if (h >= 12 || h < 18) {
+    if (h >= 12) {
         salutations.innerHTML = ' tenha uma boa tarde'
     }
 
@@ -91,6 +91,7 @@ function toDoList(){
     const todoTask = document.querySelector('.todo-value').value;
     const todoList = document.querySelector('.list-todo')
     const newTodo = document.createElement('li')
+    const completeTasks = document.querySelector('.complete-tasks')
 
     if(todoTask == ""){
         alert ('Você nao pode criar tasks vazias')
@@ -107,8 +108,15 @@ function toDoList(){
     newTodo.addEventListener('click', () => {
         newTodo.classList
             .toggle('complete')
-    })
+        
+        if (newTodo.classList.contains('complete')){
+            completeTasks.appendChild(newTodo)
+        }
 
+        else {
+            todoList.appendChild(newTodo)
+        }
+    })
 }
 
 
