@@ -1,0 +1,75 @@
+body {
+    background: #E44E58;
+    color: #FFFFFF
+}
+
+
+.container {
+    padding: 5rem;
+    background: rgba(12, 9, 13, 0.4);
+    border-radius: 15px;
+}
+
+
+/* weather-app-styles */
+
+
+
+.weathers-container{
+    border-radius: 15px;
+}
+
+.description-text{
+    font-size: 100px;
+}
+
+.value-celsius {
+    font-size: 50px;
+}
+
+
+.clock {
+    font-size: 30px;
+}
+
+
+
+
+
+
+/* Todo list styles*/
+
+
+input {
+    border-radius: .5rem;
+    border: none;
+    padding: .5rem 1rem .5rem 1rem;
+}
+
+a > i{
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: .5rem;
+    transition: all .3s ease-in-out;
+}
+
+a:hover i{
+    color: #FFFFFF;
+    transform: scale(1.3);
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+    padding: .5rem .5rem;
+    margin: .5rem 0 0 0;
+    background: rgba(12, 9, 13, 0.157)
+}
+
+
+.complete {
+    text-decoration: line-through;
+    cursor: pointer;
+    background-color: rgb(110, 114, 113);
+    opacity: 0.4
+}
