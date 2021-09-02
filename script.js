@@ -14,7 +14,7 @@ function returnTemperature (pos){
     const data = new Date()
     const celsiusValue = document.querySelector('.value-celsius')
     const location = document.querySelector('.location-text')
-    const skyState = document.querySelector('.description-text')
+    const skyState = document.querySelector('.weather-description')
     const date = document.querySelector('.date')
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -25,15 +25,14 @@ function returnTemperature (pos){
         .then(data => {
             celsiusValue.innerHTML = (data.main.temp - 273.15).toFixed(0) + '°'
             location.innerHTML = data.name + ', ' + data.sys.country
-            if (data.weather[0].main == 'Clear'){
-                skyState.classList.add('far')
-                skyState.classList.add('fa-sun')
-            }
+            const weatherImageCode = data.weather[0].icon
+            const imageLink = `https://openweathermap.org/img/wn/${weatherImageCode}@2x.png`
+            const imageChild = document.createElement('img')
+            imageChild.setAttribute('src', imageLink)
+            skyState.appendChild(imageChild)
         })
 
-
-
-    .catch(err => alert('Falha ao receber sua localização - Clima indisponível.'))
+        .catch(err => alert('Falha ao receber sua localização - Clima indisponível.'))
 
     date.innerHTML = `${days[data.getDay()]}, ${data.getDate()} ${months[data.getMonth()]}`
 
@@ -75,8 +74,6 @@ function showTime(){
     if (h >= 18) {
             salutations.innerHTML = ' tenha uma boa noite!'
     }
-
-    console.log(salutations.innerText)
 }
 
 setInterval(showTime, 1000);
